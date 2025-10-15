@@ -92,4 +92,15 @@
 		</plugins>
 	</build>
 
+	    <profiles>
+        <profile>
+            <id>production</id>
+            <properties>
+                <maven.compiler.source>23</maven.compiler.source>
+				<maven.compiler.target>23</maven.compiler.target>
+                <spring.profiles.active>production</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
