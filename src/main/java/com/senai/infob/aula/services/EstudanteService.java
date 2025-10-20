@@ -28,4 +28,12 @@ public class EstudanteService {
         }
         return false;
     }
+
+    public String login(String email, String senha) {
+        Estudante estudante = estudanteRepository.findByEmail(email);
+        if(estudante != null && senha.equals(estudante.getSenha())) {
+            return "Login efetuado com sucesso";
+        }
+        return "Falha ao realizar login";
+    }
 }

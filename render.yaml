@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: comjuntos-api
+    name: projeto-integrador
     env: docker
     plan: free
     autoDeploy: true

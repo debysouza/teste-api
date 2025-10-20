@@ -33,6 +33,10 @@ public class UnidadeCurricular {
     @JoinColumn(name = "professor_id", nullable = false)
     private Professor professor;
 
+    // @OneToOne
+    // @JoinColumn(name = "professor_id", nullable = false)
+    // private Professor professor;
+
     public UnidadeCurricular() {
     }
 

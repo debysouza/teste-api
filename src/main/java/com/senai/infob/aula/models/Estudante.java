@@ -3,8 +3,12 @@ package com.senai.infob.aula.models;
 import java.time.LocalDate;
 import java.util.Set;
 
+import com.senai.infob.aula.enums.TipoAparencia;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,6 +38,9 @@ public class Estudante {
     @Column(name="matricula")
     private String matricula;
 
+    @Column(name="senha")
+    private String senha;
+
     @ManyToMany
     @JoinTable(
         name = "estudante_unidade_curricular",
@@ -42,17 +49,22 @@ public class Estudante {
     )
     private Set<UnidadeCurricular> unidadesCurriculares;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="cor")
+    private TipoAparencia tipoAparencia;
+
     public Estudante() {
     }
 
     public Estudante(Integer id, String nome, String email, LocalDate dataNascimento, String matricula,
-            Set<UnidadeCurricular> unidadesCurriculares) {
+            Set<UnidadeCurricular> unidadesCurriculares, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.matricula = matricula;
         this.unidadesCurriculares = unidadesCurriculares;
+        this.senha = senha;
     }
 
     public Integer getId() {
@@ -103,4 +115,11 @@ public class Estudante {
         this.unidadesCurriculares = unidadesCurriculares;
     }
     
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infob.aula.models.Estudante;
@@ -42,10 +43,11 @@ public class EstudanteController {
 
     @PutMapping("/atualizar/{id}")
     public ResponseEntity<?> atualizar(@PathVariable Integer id) {
-        // boolean atualizou = estudanteService.atualizar(id);
-        // if (deletou) {
-        //     return "Usuário atualizado com sucesso";
-        // }
         return ResponseEntity.ok("");
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String email, @RequestParam String senha) {
+        return estudanteService.login(email, senha);
     }
 }
